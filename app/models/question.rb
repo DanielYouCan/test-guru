@@ -3,5 +3,5 @@ class Question < ApplicationRecord
   has_many :answers
 
   validates :body, presence: true
-  validates :answers, length: 4
+  validates :answers, length: { maximum: 4 }
 end
