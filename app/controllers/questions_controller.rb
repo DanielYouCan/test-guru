@@ -1,31 +1,46 @@
 class QuestionsController < ApplicationController
-  before_action :find_question, only: [:show, :destroy]
-  before_action :find_questions, only: [:index, :create]
+  before_action :find_question, only: %i[show edit update destroy]
+  before_action :find_test
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    render plain: @questions.inspect
+    redirect_to controller: 'tests', action: 'show', id: "#{params[:test_id]}"
   end
 
   def show
-    render plain: @question.body
+    @question
   end
 
   def new
-
+    @question = Question.new
   end
 
   def create
-    question = @questions.create(question_params)
+    @question = @test.questions.new(question_params)
 
-    render plain: question.inspect
+    if @question.save
+      redirect_to test_question_path(@test, @question)
+    else
+      render :new
+    end
+  end
+
+  def edit
+
+  end
+
+  def update
+    if @question.update(question_params)
+      redirect_to test_question_path(@test, @question)
+    else
+      render :edit
+    end
   end
 
   def destroy
     @question.destroy
-
-    render plain: 'Question has been destoyed'
+    redirect_to test_path(@test)
   end
 
   private
@@ -36,6 +51,10 @@ class QuestionsController < ApplicationController
 
   def find_questions
     @questions = Test.find(params[:test_id]).questions
+  end
+
+  def find_test
+    @test = Test.find(params[:test_id])
   end
 
   def question_params
