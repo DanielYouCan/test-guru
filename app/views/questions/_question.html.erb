@@ -1,0 +1,12 @@
+<% @test.questions.each do |question| %>
+<tr>
+    <td><%= question.body %></td>
+    <td><%= link_to 'Show', test_question_path(@test,question) %></td>
+    <td><%= link_to 'Edit', edit_test_question_path(@test, question) %></td>
+    <td><%= link_to 'Delete',
+                    test_question_path(@test, question),
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' } %>
+    </td>
+  <% end %>
+  </tr>

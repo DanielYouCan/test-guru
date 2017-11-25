@@ -1,0 +1,25 @@
+<p>
+  <strong>Title:</strong>
+  <%= @test.title %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @test.level %>
+</p>
+
+<%= link_to 'Edit', edit_test_path(@test) %> |
+<%= link_to 'Back', tests_path %> |
+<%= link_to 'New question', new_test_question_path(@test) %>
+<p>
+  <h3>Questions:</h3>
+</p>
+
+<table>
+  <tr>
+    <th>Body</th>
+    <th colspan="3">Actions</th>
+  </tr>
+
+<%= render 'questions/question' %>
+</table>
