@@ -3,5 +3,5 @@
   <%= @question.body %>
 </p>
 
-<%= link_to 'Edit', edit_test_question_path(@test,@question) %> |
-<%= link_to 'Back', test_path(@test) %>
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', test_path(@question.test_id) %>

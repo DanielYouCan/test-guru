@@ -8,7 +8,7 @@ class TestsController < ApplicationController
   end
 
   def show
-    @test
+    
   end
 
   def new
