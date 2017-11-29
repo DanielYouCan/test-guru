@@ -1,9 +1,5 @@
 module QuestionsHelper
-  def question_header(test)
-    if current_page?("/questions/#{@question.id}/edit")
-      "Edit #{test.title} Question"
-    else
-      "Create New #{test.title} Question"
-    end
+  def question_header(question)
+    question.new_record? ? "Create New #{@test.title} Question" : "Edit #{question.test.title} Question"
   end
 end
