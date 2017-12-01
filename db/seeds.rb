@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
     questions = Question.create([
-      { body: 'What does HTML stand for?' }, 
+      { body: 'What does HTML stand for?' },
       { body: 'What typing is in Ruby?' },
       { body: 'What is the fastest JS framework?' }])
 
