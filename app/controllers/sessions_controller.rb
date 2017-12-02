@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to tests_path
+      redirect_to cookies[:current_url]
     else
       flash.now[:alert] = 'Wrong input! Check it for mistakes'
       render :new
