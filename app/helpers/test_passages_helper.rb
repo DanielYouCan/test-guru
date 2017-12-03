@@ -4,12 +4,11 @@ module TestPassagesHelper
 
     message_failed = "Your result is #{test_result}%.You successfully passed the test!"
     message_success =  "Your result is #{test_result}. You failed passing the test"
-    
-    test_result > 85 ? content_tag(:i, message_failed, class: "green_result") : content_tag(:i, message_success, class: "red_result")
+
+    test_result >= 85 ? content_tag(:i, message_failed, class: "green_result") : content_tag(:i, message_success, class: "red_result")
   end
 
   def question_number(test_passage)
-    passage_arr = test_passage.test.questions.to_a
-    passage_arr.index(test_passage.current_question) + 1
+    test_passage.test.questions.index(test_passage.current_question) + 1
   end
 end

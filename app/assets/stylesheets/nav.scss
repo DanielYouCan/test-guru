@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  align-content: flex-start;
+  height: 20px;
+}
+
+.nav.user {
+  margin-right: 5px;
+  a {
+    text-decoration: none;
+  }
+}
