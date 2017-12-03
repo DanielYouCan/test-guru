@@ -4,7 +4,7 @@
   </div>
   <% if logged_in? %>
     <div class="nav user">
-      Welcome, <b><%= current_user.email %> </b> Guru |
+      Welcome, <b><%= current_user.email.split("@")[0] %> </b> Guru |
     </div>
     <div class="nav user">
       <%= button_to 'Logout', logout_path, method: :delete %>

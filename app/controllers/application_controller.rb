@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     unless current_user
-      cookies[:current_url] = request.original_url
+      cookies[:current_url] = request.original_url || root_path
       redirect_to login_path, alert: 'You do not have access to this page!'
     end
   end

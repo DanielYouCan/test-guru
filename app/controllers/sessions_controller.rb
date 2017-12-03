@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
 
     if user&.authenticate(params[:password])
+      cookies[:current_url] ||= root_path
       session[:user_id] = user.id
       redirect_to cookies[:current_url]
     else

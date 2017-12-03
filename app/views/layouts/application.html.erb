@@ -10,6 +10,7 @@
 
   <body>
     <%= render 'shared/header' %>
+    <%= render html: flash_message.html_safe %>
     <%= yield %><br>
     <%= render 'shared/footer' %>
   </body>
