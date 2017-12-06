@@ -7,11 +7,9 @@ module ApplicationHelper
     link_to yield, "https://github.com/#{author}/#{repo}", target: :_blank
   end
 
-  def flash_message
-    message = ""
-    flash.each do |key, value|
-      message = (content_tag :p, value, class: "flash #{key}")
-    end
-    message
+  def greeting
+    greeting = "Welcome, " + content_tag(:b, current_user.email.split("@")[0]) + " Guru"
+    greeting.html_safe
   end
+
 end

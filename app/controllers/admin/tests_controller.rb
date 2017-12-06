@@ -2,8 +2,6 @@ class Admin::TestsController < Admin::BaseController
 
   before_action :find_test, only: %i[show edit update destroy start]
 
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
-
   def index
     @tests = Test.all
   end
@@ -21,7 +19,8 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def create
-    @test = Test.new(test_params)
+    defaults = test_params.reverse_merge(user_id: current_user.id)
+    @test = Test.new(defaults)
 
     if @test.save
       redirect_to [:admin, @test]
@@ -55,8 +54,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def test_params
-    defaults = { user_id: current_user.id }
-    params.require(:test).permit(:title, :level, :category_id, :user_id).reverse_merge(defaults)
+    params.require(:test).permit(:title, :level, :category_id, :user_id)
   end
 
   def rescue_with_test_not_found
