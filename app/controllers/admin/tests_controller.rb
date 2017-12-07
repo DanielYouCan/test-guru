@@ -19,8 +19,8 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def create
-    defaults = test_params.reverse_merge(user_id: current_user.id)
-    @test = Test.new(defaults)
+    @test = Test.new(test_params)
+    @test.author = current_user
 
     if @test.save
       redirect_to [:admin, @test]
@@ -54,10 +54,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id, :user_id)
+    params.require(:test).permit(:title, :level, :category_id)
   end
 
-  def rescue_with_test_not_found
-    render plain: 'Test was not found'
-  end
 end

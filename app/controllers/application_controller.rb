@@ -3,12 +3,13 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
-  helper_method :is_admin?
+
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_resource_not_found
 
   private
 
-  def after_sign_in_path_for(resource)
-    return super unless resource.is_a?(Admin)
+  def after_sign_in_path_for(user)
+    return super unless user.is_admin?
     admin_tests_path
   end
 
@@ -17,8 +18,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name])
   end
 
-  def is_admin?
-    current_user.is_a?(Admin)
+  def rescue_with_resource_not_found
+    render file: 'public/404.html'
   end
 
 end

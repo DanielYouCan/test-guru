@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def greeting
-    greeting = "Welcome, " + content_tag(:b, current_user.email.split("@")[0]) + " Guru"
+    greeting = "Welcome, " + content_tag(:b, current_user.full_name) + " Guru"
     greeting.html_safe
   end
 
