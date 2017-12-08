@@ -10,3 +10,21 @@
     text-decoration: none;
   }
 }
+
+.nav.nav-admin {
+  height: 35px;
+  padding: 15px;
+  line-height: 35px;
+  color: #ffffff;
+  background-color: #4293e6;
+  margin-bottom: 40px;
+}
+
+.nav-admin.title {
+  font-size: 140%;
+  font-weight: bold;
+}
+
+.nav-admin.user {
+  float: right;
+}
