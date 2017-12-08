@@ -1,6 +1,6 @@
-<h1><%= @test_passage.test.title %> Test was completed! </h1>
+<h1><%= t('.header', title: @test_passage.test.title) %></h1>
 <p>
-  <h3>Result:</h3>
+  <h3><%= t('.result')%>:</h3>
   <%= result(@test_passage) %>
 </p>
-<%= link_to 'Back to tests list', tests_path %>
+<%= link_to t('.back'), tests_path %>
