@@ -46,6 +46,11 @@ en:
         category_id: 'Category'
 
   shared:
+    header:
+      panel: 'Admin Panel'
+      login: 'Login'
+      logout: 'Logout'
+      register: 'Register'
     errors:
       header:
         one: "%{count} error detected"
@@ -68,6 +73,9 @@ en:
       back: 'Back'
 
   admin:
+    header:
+      panel: 'Admin Panel'
+      logout: 'Logout'
     questions:
       question:
         show: 'Show'

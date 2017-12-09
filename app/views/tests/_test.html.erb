@@ -1,6 +1,6 @@
-<tr>
+<tr align="center">
   <td><%= test.title %></td>
   <td><%= test_level(test) %></td>
-  <td align="center"><%= test.questions.count %></td>
-  <td><%= button_to t('.start'), start_test_path(test) %></td>
+  <td><%= test.questions.count %></td>
+  <td><%= button_to t('.start'), start_test_path(test), class: 'btn btn-outline-success' %></td>
 </tr>

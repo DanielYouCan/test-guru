@@ -1,8 +1,15 @@
-<div class="nav nav-admin">
-  <span class="nav-admin title">TestGuru Admin Panel</span>
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+  <%= link_to "Test-Guru", root_path, class: 'navbar-brand' %>
 
-  <div class="nav-admin user">
-    <%= greeting %> |
-    <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to t('.panel'), admin_tests_path, class: 'nav-link'%>
+      </li>
+    </ul>
   </div>
-</div>
+  <span class="navbar-text">
+    <%= greeting %> |
+    <%= link_to t('.logout'), destroy_user_session_path, method: :delete %>
+  </span>
+</nav>

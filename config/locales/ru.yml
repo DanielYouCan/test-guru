@@ -16,6 +16,11 @@ ru:
         category_id: 'Категория'
 
   shared:
+    header:
+      panel: 'Админ панель'
+      login: 'Логин'
+      logout: 'Выйти'
+      register: 'Зарегестрироваться'
     errors:
       header:
         few: "Обнаружено %{count} ошибки"
@@ -40,6 +45,9 @@ ru:
       back: 'Назад'
 
   admin:
+    header:
+      panel: 'Админ панель'
+      logout: 'Выйти'
     questions:
       question:
         show: 'Подробнее'
