@@ -1,20 +1,23 @@
-<div class="header">
-  <div class="nav user">
-    <%= link_to "Test-Guru", root_path %> |
-  </div>
-  <% if user_signed_in? %>
-    <div class="nav user">
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+
+    <div class="collapse navbar-collapse">
+      <%= link_to "Test-Guru", root_path, class: 'navbar-brand' %>
+      <% if user_signed_in? && current_user.is_admin? %>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <%= link_to t('.panel'), admin_tests_path, class: 'nav-link'%>
+        </li>
+      </ul>
+      <% end %>
+    </div>
+
+  <span class="navbar-text">
+    <% if user_signed_in? %>
       <%= greeting %> |
-    </div>
-    <div class="nav user">
-      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-    </div>
-  <% else %>
-    <div class="nav user">
-      <%= link_to 'Register', new_user_registration_path %>  |
-    </div>
-    <div class="nav user">
-      <%= link_to 'Login', new_user_session_path %>
-    </div>
-  <% end %>
-</div>
+      <%= link_to t('.logout'), destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to t('.register'), new_user_registration_path %>  |
+      <%= link_to t('.login'), new_user_session_path %>
+    <% end %>
+  </span>
+</nav>
