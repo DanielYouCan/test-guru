@@ -37,6 +37,20 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise', '~> 4.0'
 
+#NETWORKING
+
+gem 'faraday'
+
+#GITHUB
+
+gem 'octokit', '~> 4.0'
+
+gem 'faraday-http-cache'
+
+#ENV
+
+gem 'dotenv-rails', groups: [:development, :test]
+
 #LOCALIZATION
 
 gem 'rails-i18n', '~> 5.0.0'
