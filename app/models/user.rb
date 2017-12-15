@@ -24,13 +24,7 @@ class User < ApplicationRecord
   end
 
   def add_gist(question, url)
-    gist = Gist.new
-
-    gist.user = self
-    gist.question = question
-    gist.gist_url = url
-
-    gist.save
+    self.gists.create(question: question, gist_url: url)
   end
 
   def is_admin?

@@ -2,22 +2,24 @@ class GistQuestionService
 
   include ActionView::Helpers
 
-  attr_reader :client
-
   def initialize(question, client: nil)
     @question = question
     @test = @question.test
-    @client = client || Octokit::Client.new(:access_token => ENV["MY_TOKEN"])
+    @client = client || Octokit::Client.new(:access_token => ENV["GITHUB_TOKEN"])
   end
 
   def call
     @client.create_gist(gist_params)
   end
 
+  def gist_url
+    @client.last_response.data[:html_url]
+  end
+
   def gist_created?
     status = @client.last_response.status
 
-    true if status == 201
+    status == 201
   end
 
   private
