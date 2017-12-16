@@ -43,16 +43,29 @@ ru:
       header: 'Тест %{title} успешно завершен!'
       result: 'Результат'
       back: 'Назад'
+    gist:
+      success_html: "%{gist} успешно сохранен!"
+      failure: 'Во время сохранения gist произошла ошибка'
+
+  gist_desc: "Вопрос про %{title} с TestGuru"
 
   admin:
     header:
       panel: 'Админ панель'
       logout: 'Выйти'
+      gists: 'Список Gists'
     questions:
       question:
         show: 'Подробнее'
         edit: 'Редактировать'
         delete: 'Удалить'
+    gists:
+      index:
+        url: 'Ссылка'
+        user: 'Пользователь'
+        question: 'Вопрос'
+      gist:
+        gist_link: 'Посмотреть на GitHubGists'
     tests:
       create:
         success: 'Тест был успешно создан'
@@ -69,6 +82,7 @@ ru:
         questions: "Вопросы"
         actions: "Действия"
         new: 'Добавить тест'
+        admin_access: 'У вас недостаточно прав для просмотра данной страницы'
       show:
         edit: 'Редактировать'
         back: 'Назад'

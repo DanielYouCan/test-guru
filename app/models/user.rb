@@ -9,6 +9,7 @@ class User < ApplicationRecord
         :confirmable
 
   has_many :test_passages
+  has_many :gists
   has_many :tests, through: :test_passages
   has_many :authored_tests, class_name: 'Test'
 
@@ -20,6 +21,10 @@ class User < ApplicationRecord
 
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def add_gist(question, url)
+    self.gists.create(question: question, gist_url: url)
   end
 
   def is_admin?

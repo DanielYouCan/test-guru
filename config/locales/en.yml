@@ -45,6 +45,8 @@ en:
         level: 'Level'
         category_id: 'Category'
 
+  gist_desc: "A question about %{title} from TestGuru"
+
   shared:
     header:
       panel: 'Admin Panel'
@@ -71,16 +73,27 @@ en:
       header: 'Test %{title} was completed!'
       result: 'Result'
       back: 'Back'
+    gist:
+      success: '%{gist} was successfully created!'
+      failure: 'An error occured during creation of the gist'
 
   admin:
     header:
       panel: 'Admin Panel'
+      gists: 'Gists list'
       logout: 'Logout'
     questions:
       question:
         show: 'Show'
         edit: 'Edit'
         delete: 'Delete'
+    gists:
+      index:
+        url: 'Url'
+        user: 'User'
+        question: 'Question'
+      gist:
+        gist_link: 'View on GitHubGists'
     tests:
       create:
         success: 'Test was successfully created.'
@@ -94,6 +107,7 @@ en:
         questions: "Questions"
         actions: "Actions"
         new: 'New test'
+        admin_access: 'You are not authorized to view this page'
       edit:
         header: 'Edit %{title} test'
         back: 'Back'
