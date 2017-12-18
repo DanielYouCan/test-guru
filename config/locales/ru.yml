@@ -75,6 +75,8 @@ ru:
       edit:
         header: 'Редактировать %{title} тест'
         back: 'Назад'
+      form_inline:
+        submit: "ОК"
       index:
         header: 'Доступные тесты'
         title: "Название"
