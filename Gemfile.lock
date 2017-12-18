@@ -135,6 +135,11 @@ GEM
       mini_portile2 (~> 2.3.0)
     nokogiri (1.8.1-x86-mingw32)
       mini_portile2 (~> 2.3.0)
+    octicons (5.0.5)
+      nokogiri (>= 1.6.3.1)
+    octicons_helper (4.0.7)
+      octicons
+      rails
     octokit (4.7.0)
       sawyer (~> 0.8.0, >= 0.5.3)
     orm_adapter (0.5.0)
@@ -263,6 +268,7 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   listen (>= 3.0.5, < 3.2)
+  octicons_helper
   octokit (~> 4.0)
   puma (~> 3.7)
   rails (~> 5.1.4)

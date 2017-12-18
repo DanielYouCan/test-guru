@@ -14,11 +14,11 @@ class TestPassagesController < ApplicationController
 
     link_to_gist = (helpers.link_to 'Gist', gistservice.gist_url)
 
-    if gistservice.gist_created?
+    flash_options = if gistservice.gist_created?
       current_user.add_gist(@test_passage.current_question, gistservice.gist_url)
-      flash_options = { notice: t('.success_html', gist: link_to_gist)}
+      { notice: t('.success_html', gist: link_to_gist)}
     else
-      flash_options = { alert: t('.failure') }
+      { alert: t('.failure') }
     end
 
     redirect_to @test_passage, flash_options
