@@ -28,8 +28,10 @@ function formInlineHandler(testId) {
   $testTitle.toggle()
 
   if ($formInline.is(':visible')) {
-    link.textContent = 'Cancel'
+    link.textContent = 'Отмена'
   } else {
-      link.textContent = 'Edit'
+      if (link) {
+        link.textContent = 'Редактировать'
+      }
   }
 }

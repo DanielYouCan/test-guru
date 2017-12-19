@@ -11,4 +11,8 @@ module TestPassagesHelper
   def question_number(test_passage)
     test_passage.test.questions.index(test_passage.current_question) + 1
   end
+
+  def questions_amount(test_passage)
+    test_passage.test.questions.count
+  end
 end
