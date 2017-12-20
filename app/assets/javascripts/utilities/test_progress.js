@@ -2,10 +2,10 @@ document.addEventListener('turbolinks:load', function() {
   var progressBar = document.querySelector('.progress-bar')
 
   if (progressBar) {
-    var questionId = progressBar.dataset.questionId
+    var questionNumber = progressBar.dataset.questionNumber
     var questionsAmount = progressBar.dataset.questionsAmount
 
-    var progressPercent = Math.trunc(questionId/questionsAmount * 100)
+    var progressPercent = Math.trunc(questionNumber/questionsAmount * 100)
 
     if (progressPercent == 100) {
       progressBar.classList.remove('bg-info')

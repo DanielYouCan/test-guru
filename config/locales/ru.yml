@@ -42,6 +42,8 @@ ru:
     result:
       header: 'Тест %{title} успешно завершен!'
       result: 'Результат'
+      message_failed: "Ваш результат %{test_result}%.Вы не прошли этот тест"
+      message_success: "Ваш результат %{test_result}%.Вы успешно прошли тест!"
       back: 'Назад'
     gist:
       success_html: "%{gist} успешно сохранен!"

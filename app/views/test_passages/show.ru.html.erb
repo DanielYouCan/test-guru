@@ -1,14 +1,14 @@
 <h1>Вы проходите <%= @test_passage.test.title %> тест</h1>
 
-<strong> Число вопросов: <%= questions_amount(@test_passage) %></strong><br>
+<strong> Число вопросов: <%= @test_passage.questions_amount %></strong><br>
 
 <div class='progress' style="height: 25px">
   <%= content_tag :div,
                   "",
                   class: "progress-bar progress-text bg-info progress-bar-striped progress-bar-animated",
                   html: { style: "height: 25px"},
-                  data: { question_id: question_number(@test_passage),
-                          questions_amount: questions_amount(@test_passage) } %>
+                  data: { question_number: question_number(@test_passage),
+                          questions_amount: @test_passage.questions_amount } %>
 </div>
 
 <b>

@@ -2,8 +2,9 @@ document.addEventListener('turbolinks:load', function() {
   $('.form-inline-link').on('click', formInlineLinkHandler)
 
   var errors = document.querySelector('.resource-errors')
+  var formInline = document.querySelector('.form-inline-link')
 
-  if (errors) {
+  if (errors && formInline) {
     var resourceId = errors.dataset.resourceId
     formInlineHandler(resourceId)
   }
@@ -18,8 +19,6 @@ function formInlineLinkHandler(event) {
 
 function formInlineHandler(testId) {
   var link = document.querySelector('.form-inline-link[data-test-id="' + testId + '"]')
-  // var testTitle = document.querySelector('.test-title[data-test-id="' + testId + '"]')
-  // var formInline = document.querySelector('.form-inline[data-test-id="' + testId + '"]')
 
   var $testTitle = $('.test-title[data-test-id="' + testId + '"]')
   var $formInline = $('.form-inline[data-test-id="' + testId + '"]')
@@ -30,8 +29,6 @@ function formInlineHandler(testId) {
   if ($formInline.is(':visible')) {
     link.textContent = 'Отмена'
   } else {
-      if (link) {
-        link.textContent = 'Редактировать'
-      }
+      link.textContent = 'Редактировать'
   }
 }

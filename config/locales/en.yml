@@ -42,6 +42,8 @@ en:
       header: 'Test %{title} was completed!'
       result: 'Result'
       back: 'Back'
+      message_success: "Your result is %{test_result}%.You successfully passed the test!"
+      message_failed: "Your result is %{test_result}%.You failed passing the test"
     gist:
       success: '%{gist} was successfully created!'
       failure: 'An error occured during creation of the gist'
