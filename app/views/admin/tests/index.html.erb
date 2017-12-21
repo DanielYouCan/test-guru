@@ -4,6 +4,8 @@
 
 <%= button_to t('.new'), new_admin_test_path, class: 'btn btn-dark ml-1', method: :get  %>
 
+<%= render 'shared/errors', resource: @test %>
+
 <div class="mt-2">
   <table class="table table-striped table-bordered">
     <thead class="thead-dark" align="center">
