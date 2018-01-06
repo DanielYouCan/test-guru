@@ -1,6 +1,6 @@
 module TestPassagesHelper
   def result(test_passage)
-    test_result = (test_passage.correct_questions.to_f / test_passage.questions_amount * 100).round
+    test_result = (test_passage.correct_questions.to_f / questions_amount(test_passage) * 100).round
 
     message_success = t('.message_success', test_result: test_result)
     message_failed =  t('.message_failed', test_result: test_result)
@@ -10,6 +10,10 @@ module TestPassagesHelper
 
   def question_number(test_passage)
     test_passage.test.questions.index(test_passage.current_question) + 1
+  end
+
+  def questions_amount(test_passage)
+    @questions_amount ||= test_passage.test.questions.count
   end
 
 end

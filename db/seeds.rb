@@ -30,4 +30,5 @@
     tests = Test.create([
       { title: 'PHP', level: 2 },
       { title: 'C#' },
-      { title: 'C', level: 3 }])
+      { title: 'C', level: 3 },
+      { title: 'Ruby', level: 1 }])

@@ -1,6 +1,6 @@
 <h1>Passing the <%= @test_passage.test.title %> Test</h1>
 
-<strong> Number of questions: <%= @test_passage.questions_amount %></strong><br>
+<strong> Number of questions: <%= questions_amount(@test_passage) %></strong><br>
 
 <div class='progress' style="height: 25px">
   <%= content_tag :div,
@@ -8,7 +8,7 @@
                   class: "progress-bar progress-text bg-info progress-bar-striped progress-bar-animated",
                   html: { style: "height: 25px"},
                   data: { question_number: question_number(@test_passage),
-                          questions_amount: @test_passage.questions_amount } %>
+                          questions_amount: questions_amount(@test_passage) } %>
 </div>
 
 <b>

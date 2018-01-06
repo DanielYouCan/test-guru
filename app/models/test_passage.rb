@@ -6,7 +6,6 @@ class TestPassage < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_first_question, on: :create
-  after_initialize :after_initialize_set_questions_amount
   before_update :before_update_set_current_question
 
   def completed?
@@ -44,10 +43,6 @@ class TestPassage < ApplicationRecord
 
   def before_validation_set_first_question
     self.current_question = test.questions.first if test.present?
-  end
-
-  def after_initialize_set_questions_amount
-    @questions_amount = test.questions.count if test.present?
   end
 
 end
