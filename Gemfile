@@ -48,7 +48,7 @@ gem 'faraday-http-cache'
 
 #ENV
 
-gem 'dotenv-rails', groups: [:development, :test]
+gem 'dotenv-rails', :require => 'dotenv/rails-now'
 
 #LOCALIZATION
 
