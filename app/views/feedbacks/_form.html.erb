@@ -1,0 +1,15 @@
+<%= form_with model: @feedback, local: true do |form| %>
+  <%= render 'shared/errors', resource: @feedback %>
+
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title, id: :feedback_title %>
+  </p>
+
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body, id: :feedback_body %>
+  </p>
+
+  <p><%= form.submit %></p>
+<% end %>
