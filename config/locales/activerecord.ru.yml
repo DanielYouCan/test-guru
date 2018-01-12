@@ -8,6 +8,9 @@ ru:
         title: 'Название'
         category_id: 'Категория'
         level: 'Уровень'
+      feedback:
+        title: 'Тема'
+        body: 'Сообщение'
 
     errors:
       messages:

@@ -10,9 +10,10 @@ class FeedbacksController < ApplicationController
 
     if @feedback.save
       FeedbacksMailer.feedback_message(@feedback).deliver_now
-      flash[:notice] = "Your message has been successfully send"
+      flash[:notice] = t('.success')
       redirect_to root_path
     else
+      flash[:notice] = t('.failure')
       render :new
     end
   end

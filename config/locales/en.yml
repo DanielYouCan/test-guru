@@ -8,6 +8,8 @@ en:
       test:
         create: 'Create test'
         update: 'Update test'
+      feedback:
+        create: 'Send message'
     label:
       test:
         title: 'Title'
@@ -22,10 +24,20 @@ en:
       login: 'Login'
       logout: 'Logout'
       register: 'Register'
+      feedback: 'Feedback'
     errors:
       header:
         one: "%{count} error detected"
         other: "%{count} errors detected"
+
+
+  feedbacks:
+    new:
+      header: 'Feedback Form'
+      index: 'Back to index page'
+    create:
+      success: 'Your message was successfully send to administrator!'
+      failure: 'Message was not send'
 
   tests:
     index:

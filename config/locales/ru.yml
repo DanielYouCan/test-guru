@@ -9,6 +9,8 @@ ru:
       test:
         create: 'Создать тест'
         update: 'Обновить тест'
+      feedback:
+        create: 'Отправить сообщение'
     label:
       test:
         title: 'Название'
@@ -21,12 +23,21 @@ ru:
       login: 'Логин'
       logout: 'Выйти'
       register: 'Зарегестрироваться'
+      feedback: 'Обратная связь'
     errors:
       header:
         few: "Обнаружено %{count} ошибки"
         many: "Обнаружено %{count} ошибок"
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
+
+  feedbacks:
+    new:
+      header: 'Форма обратной связи'
+      index: 'Вернуться на главную'
+    create:
+      success: 'Ваша сообщение успешно отправлено администратору!'
+      failure: 'Не удалось отправить сообщение'
 
   tests:
     index:

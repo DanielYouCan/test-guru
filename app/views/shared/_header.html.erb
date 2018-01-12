@@ -8,6 +8,13 @@
       <li class="navbar-brand">
         <a href="/?lang=en"><span class="flag-icon flag-icon-us flag-icon-squared"></span></a>
       </li>
+      <% if user_signed_in? && !current_user.is_admin? %>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <%= link_to t('.feedback'), new_feedback_path, class: 'nav-link'%>
+          </li>
+        </ul>
+      <% end %>
       <% if user_signed_in? && current_user.is_admin? %>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
