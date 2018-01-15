@@ -8,6 +8,9 @@ en:
         title: 'Title'
         category_id: 'Category'
         level: 'Level'
+      feedback:
+        title: 'Topic'
+        body: 'Message'
 
     errors:
       messages:

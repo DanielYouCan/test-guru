@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :feedbacks, only: %i[new create]
+
   resources :test_passages, only: %i[show update] do
     member do
       get :result
@@ -20,7 +22,7 @@ Rails.application.routes.draw do
     resources :gists, only: %i[index]
     resources :tests do
       patch :update_inline, on: :member
-      
+
       resources :questions, shallow: true do
         resources :answers, shallow: true, except: :index
       end
