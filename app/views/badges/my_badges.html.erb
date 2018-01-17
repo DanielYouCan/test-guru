@@ -1,0 +1,11 @@
+<div class="mt-2">
+  <h1 align="center"><%= t('.header') %></h1>
+</div>
+
+<div class="container mt-2">
+  <% @my_badges.in_groups_of(4, false).each do |badge_group| %>
+    <div class="row">
+      <%= render badge_group %>
+    </div>
+  <% end %>
+</div>

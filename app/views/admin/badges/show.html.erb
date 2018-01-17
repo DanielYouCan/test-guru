@@ -1,0 +1,22 @@
+<p>
+  <strong><%= t('.title') %>:</strong>
+  <%= @badge.title %>
+</p>
+
+<p>
+  <strong><%= t('.file_name') %>:</strong>
+  <%= @badge.file_name %>
+</p>
+
+<p>
+  <strong><%= t('.rule_title') %>:</strong>
+  <%= @badge.rule_title %>
+</p>
+
+<p>
+  <strong><%= t('.rule_value') %>:</strong>
+  <%= @badge.rule_value %>
+</p>
+
+<%= link_to t('.edit'), edit_admin_badge_path(@badge) %> |
+<%= link_to t('.back'), admin_badges_path %>

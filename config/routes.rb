@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :badges, only: %i[index]
+  get 'my_badges', action: :my_badges, controller: 'badges'
+
   resources :feedbacks, only: %i[new create]
 
   resources :test_passages, only: %i[show update] do
@@ -20,6 +23,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :gists, only: %i[index]
+    resources :badges
     resources :tests do
       patch :update_inline, on: :member
 

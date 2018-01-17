@@ -1,0 +1,23 @@
+<tr align="center">
+  <td class="align-middle"><%= badge.title %></td>
+  <td class="align-middle"><%= badge.file_name %></td>
+  <td class="align-middle"><%= badge.rule_title %></td>
+  <td class="align-middle"><%= badge.rule_value %></td>
+  <td class="align-middle">
+    <%= link_to t('.show'),
+                  admin_badge_path(badge),
+                  class: 'btn btn-info' %>
+  </td>
+  <td class="align-middle">
+    <%= link_to t('.edit'),
+                  edit_admin_badge_path(badge),
+                  data: { badge_id: badge.id },
+                  class: 'btn btn-primary' %>
+  </td>
+  <td class="align-middle">
+    <%= link_to t('.delete'),
+                    admin_badge_path(badge),
+                    data: { confirm: 'Are you sure?' },
+                    class: 'btn btn-danger' %>
+  </td>
+</tr>
