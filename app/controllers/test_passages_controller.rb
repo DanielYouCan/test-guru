@@ -30,7 +30,8 @@ class TestPassagesController < ApplicationController
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
-      @badges = Badge.find_badges(@test_passage, current_user)
+      @test_passage.update(passed: true) if @test_passage.passed?
+      @badges = BadgesSearch.find_badges(@test_passage, current_user)
       if !@badges.empty?
         current_user.badges.push(@badges)
         flash[:notice] = t('.new_badges', amount: @badges.count)

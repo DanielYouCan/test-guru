@@ -9,8 +9,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :badges, only: %i[index]
-  get 'my_badges', action: :my_badges, controller: 'badges'
+  namespace :badges do
+    get '/', action: :my_badges
+    get 'all', action: :index
+  end
 
   resources :feedbacks, only: %i[new create]
 

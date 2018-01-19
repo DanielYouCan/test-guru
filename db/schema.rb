@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180117160701) do
+ActiveRecord::Schema.define(version: 20180119123536) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20180117160701) do
 
   create_table "badges", force: :cascade do |t|
     t.string "title"
-    t.string "file_name"
+    t.string "image_file_name"
     t.string "rule_title"
     t.string "rule_value"
     t.datetime "created_at", null: false
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20180117160701) do
     t.integer "correct_questions", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "passed"
     t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
     t.index ["test_id", "user_id"], name: "index_test_passages_on_test_id_and_user_id"
   end
@@ -92,6 +93,7 @@ ActiveRecord::Schema.define(version: 20180117160701) do
     t.integer "category_id"
     t.integer "user_id"
     t.integer "questions_count", default: 0
+    t.integer "duration"
     t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true
     t.index ["user_id"], name: "index_tests_on_user_id"

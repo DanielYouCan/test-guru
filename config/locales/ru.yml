@@ -54,8 +54,7 @@ ru:
   badges:
     index:
       header: 'Бейджи'
-    my_badges:
-      header: 'Мои бейджи'
+      my_header: 'My badges'
 
   test_passages:
     result:
@@ -68,7 +67,7 @@ ru:
       success_html: "%{gist} успешно сохранен!"
       failure: 'Во время сохранения gist произошла ошибка'
     update:
-      new_badges: "Вы получили %{amount} новых <a href='/my_badges' target='blank'>бейджа</a>"
+      new_badges: "Вы получили %{amount} новых <a href='/badges' target='_blank'>бейджа</a>"
 
   gist_desc: "Вопрос про %{title} с TestGuru"
 
