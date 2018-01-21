@@ -24,6 +24,8 @@ ru:
       logout: 'Выйти'
       register: 'Зарегестрироваться'
       feedback: 'Обратная связь'
+      badges: 'Бейджи'
+      my_badges: 'Мои бейджи'
     errors:
       header:
         few: "Обнаружено %{count} ошибки"
@@ -49,6 +51,11 @@ ru:
     test:
       start: 'Пройти'
 
+  badges:
+    index:
+      header: 'Бейджи'
+      my_header: 'My badges'
+
   test_passages:
     result:
       header: 'Тест %{title} успешно завершен!'
@@ -59,6 +66,8 @@ ru:
     gist:
       success_html: "%{gist} успешно сохранен!"
       failure: 'Во время сохранения gist произошла ошибка'
+    update:
+      new_badges: "Вы получили %{amount} новых <a href='/badges' target='_blank'>бейджа</a>"
 
   gist_desc: "Вопрос про %{title} с TestGuru"
 
@@ -67,6 +76,32 @@ ru:
       panel: 'Админ панель'
       logout: 'Выйти'
       gists: 'Список Gists'
+      badges: 'Управление Badges'
+    badges:
+      index:
+        new: 'Добавить бейдж'
+        header: 'Управление бейджами'
+        title: 'Название'
+        file_url: 'Путь к изображению'
+        rule_title: 'Название правила'
+        rule_value: 'Значение'
+        actions: 'Действия'
+      show:
+        title: 'Название'
+        file_name: 'Путь к изображению'
+        rule_title: 'Название правила'
+        rule_value: 'Значение'
+        edit: 'Редактировать'
+        back: 'Назад'
+      edit:
+        back: 'Назад'
+        header: 'Редактировать %{title} бейдж'
+      badge:
+        delete: 'Удалить'
+        show: 'Подробнее'
+        edit: 'Редактировать'
+      form:
+        rules_prompt: 'Правила'
     questions:
       question:
         show: 'Подробнее'

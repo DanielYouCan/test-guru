@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :feedbacks
   has_many :tests, through: :test_passages
   has_many :authored_tests, class_name: 'Test'
+  has_many :badges_users
+  has_many :badges, through: :badges_users
 
   validates :email, presence: true, uniqueness: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
 

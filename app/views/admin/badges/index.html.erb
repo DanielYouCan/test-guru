@@ -1,0 +1,25 @@
+<div class="mt-2">
+  <h1 align="center"><%= t('.header') %></h1>
+</div>
+
+<%= button_to t('.new'), new_admin_badge_path, class: 'btn btn-dark ml-1', method: :get  %>
+
+<%= render 'shared/errors', resource: @badge %>
+
+<div class="mt-2">
+  <table class="table table-striped table-bordered">
+    <thead class="thead-dark" align="center">
+      <th class="sort-by-title pointer">
+        <%= t('.title') %>
+        <%= octicon 'arrow-up', class: 'text-success hide' %>
+        <%= octicon 'arrow-down', class: 'text-success hide' %>
+      </th>
+      <th><%= t('.file_url') %></th>
+      <th><%= t('.rule_title') %></th>
+      <th><%= t('.rule_value') %></th>
+      <th colspan="3"><%= t('.actions') %></th>
+    </thead>
+
+  <%= render @badges %>
+  </table>
+</div>

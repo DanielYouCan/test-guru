@@ -25,11 +25,17 @@ en:
       logout: 'Logout'
       register: 'Register'
       feedback: 'Feedback'
+      badges: 'Badges'
+      my_badges: 'My badges'
     errors:
       header:
         one: "%{count} error detected"
         other: "%{count} errors detected"
 
+  badges:
+    index:
+      header: 'Badges'
+      my_header: 'My badges'
 
   feedbacks:
     new:
@@ -59,12 +65,40 @@ en:
     gist:
       success: '%{gist} was successfully created!'
       failure: 'An error occured during creation of the gist'
+    update:
+      new_badges: "You've just gotten %{amount} new <a href='/badges' target='_blank'>badges</a>"
 
   admin:
     header:
       panel: 'Admin Panel'
       gists: 'Gists list'
       logout: 'Logout'
+      badges: 'Manage Badges'
+    badges:
+      index:
+        new: 'Add badge'
+        header: 'Manage Badges'
+        title: 'Title'
+        file_url: 'Image path'
+        rule_title: 'Rule title'
+        rule_value: 'Rule value'
+        actions: 'Actions'
+      show:
+        title: 'Title'
+        file_name: 'Image path'
+        rule_title: 'Rule title'
+        rule_value: 'Rule value'
+        edit: 'Edit'
+        back: 'Back'
+      edit:
+        back: 'Back'
+        header: 'Edit %{title} badge'
+      badge:
+        delete: 'Delete'
+        show: 'Show'
+        edit: 'Edit'
+      form:
+        rules_prompt: 'Rules'
     questions:
       question:
         show: 'Show'

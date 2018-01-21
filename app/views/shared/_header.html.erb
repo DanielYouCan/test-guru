@@ -13,6 +13,12 @@
           <li class="nav-item active">
             <%= link_to t('.feedback'), new_feedback_path, class: 'nav-link'%>
           </li>
+          <li class="nav-item active">
+            <%= link_to t('.badges'), badges_all_path, class: 'nav-link'%>
+          </li>
+          <li class="nav-item active">
+            <%= link_to t('.my_badges'), badges_path, class: 'nav-link'%>
+          </li>
         </ul>
       <% end %>
       <% if user_signed_in? && current_user.is_admin? %>
