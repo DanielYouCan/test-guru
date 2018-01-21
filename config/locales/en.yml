@@ -52,8 +52,13 @@ en:
       level: "Level"
       questions: "Questions"
       actions: "Actions"
+      duration: 'Duration'
     test:
       start: 'Start'
+      usual: 'No time'
+      minutes:
+        one: '%{count} minute'
+        other: '%{count} minutes'
 
   test_passages:
     result:

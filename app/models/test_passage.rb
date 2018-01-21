@@ -8,6 +8,8 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_first_question, on: :create
   before_update :before_update_set_current_question
 
+  scope :passed, -> { where(passed: true) }
+
   def completed?
     current_question.nil?
   end
@@ -46,7 +48,7 @@ class TestPassage < ApplicationRecord
   end
 
   def before_update_set_current_question
-    self.current_question = next_question unless current_question_id == nil
+    self.current_question = next_question unless current_question_id.nil?
   end
 
   def before_validation_set_first_question

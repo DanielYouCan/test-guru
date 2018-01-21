@@ -48,13 +48,19 @@ ru:
       level: "Уровень"
       questions: "Вопросы"
       actions: "Действия"
+      duration: 'Время'
     test:
       start: 'Пройти'
+      usual: 'Без времени'
+      minutes:
+        one: '%{count} минута'
+        few: '%{count} минуты'
+        many: '%{count} минут'
 
   badges:
     index:
       header: 'Бейджи'
-      my_header: 'My badges'
+      my_header: 'Мои бейджи'
 
   test_passages:
     result:

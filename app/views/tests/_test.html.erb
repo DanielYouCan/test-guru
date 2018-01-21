@@ -1,6 +1,11 @@
 <tr align="center">
   <td><%= test.title %></td>
   <td><%= test_level(test) %></td>
-  <td><%= test.questions.count %></td>
-  <td><%= button_to t('.start'), start_test_path(test), class: 'btn btn-outline-success' %></td>
+  <% if test.duration.nil? %>
+    <td> <%= t('.usual') %> </td>
+  <% else %>
+    <%= content_tag :td, t('.minutes', count: test.duration) %>
+  <% end %>
+  <td><%= test.questions_count %></td>
+  <td><%= button_to t('.start'), start_test_path(test), class: 'btn btn-outline-success btn-start',  data: { test_duration: test.duration }  %></td>
 </tr>

@@ -1,5 +1,12 @@
 <h1>Вы проходите <%= @test_passage.test.title %> тест</h1>
 
+<% if !@test_passage.test.duration.nil? %>
+  <div>
+    <b><%= t('.time_remain') %>:</b>
+    <span id="timer_field"></span>
+  </div>
+<% end %>
+
 <strong> Число вопросов: <%= questions_amount(@test_passage) %></strong><br>
 
 <div class='progress' style="height: 25px">
