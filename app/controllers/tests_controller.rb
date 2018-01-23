@@ -11,8 +11,6 @@ class TestsController < ApplicationController
 
   def start
     current_user.tests.push(@test)
-    @end_time = Time.now + @test.duration.minute if !@test.duration.nil?
-    cookies[:end_time] = @end_time
     redirect_to current_user.test_passage(@test)
   end
 

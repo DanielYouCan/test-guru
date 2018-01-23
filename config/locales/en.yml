@@ -67,6 +67,8 @@ en:
       back: 'Back'
       message_success: "Your result is %{test_result}%.You successfully passed the test!"
       message_failed: "Your result is %{test_result}%.You failed passing the test"
+    show:
+      time_remain: 'Time left'
     gist:
       success: '%{gist} was successfully created!'
       failure: 'An error occured during creation of the gist'
@@ -131,6 +133,7 @@ en:
         questions: "Questions"
         actions: "Actions"
         new: 'New test'
+        duration: 'Duration'
         admin_access: 'You are not authorized to view this page'
       edit:
         header: 'Edit %{title} test'

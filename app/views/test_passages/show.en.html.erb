@@ -1,5 +1,8 @@
 <h1>Passing the <%= @test_passage.test.title %> Test</h1>
 
+<b><%= t('.time_remain') %>: </b>
+<%= duration_field(@test_passage) %>
+
 <strong> Number of questions: <%= questions_amount(@test_passage) %></strong><br>
 
 <div class='progress' style="height: 25px">

@@ -16,4 +16,13 @@ module TestPassagesHelper
     @questions_amount ||= test_passage.test.questions.count
   end
 
+  def duration_field(test_passage)
+    if test_passage.test.duration.present?
+      content_tag :div,
+                  "",
+                  id: "timer_field",
+                  data: { test_duration: test_passage.test.duration, test_passage_id: test_passage.id }
+    end
+  end
+
 end

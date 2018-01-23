@@ -1,27 +1,47 @@
 document.addEventListener('turbolinks:load', function() {
-  $('.btn-start').on('click', timerTestHandler)
+
+  var timerField = document.querySelector("#timer_field")
+
+  if (timerField) {
+    var duration = timerField.dataset.testDuration * 60
+    setTimer(duration)
+  }
 
 })
 
-function timerTestHandler() {
-  var duration = this.dataset.testDuration * 60
-
-  if (duration) {
-    setTimer(duration)
-  }
-}
-
 function setTimer(duration) {
-  var timerField = document.getElementById("timer_field")
+  var start = Date.now(),
+      diff,
+      timerField = document.querySelector("#timer_field"),
+      minutes,
+      seconds;
 
-  setInterval(function() {
-    minutes = parseInt(duration / 60, 10)
-    seconds = parseInt(duration % 60, 10)
+  var id = timerField.dataset.testPassageId
+
+  if (localStorage["start"]) {
+    start = localStorage["start"];
+  } else {
+    localStorage["start"] = start;
+  }
+
+  function timer() {
+    diff = duration - (((Date.now() - start) / 1000) | 0)
+
+    minutes = (diff / 60) | 0
+    seconds = (diff % 60) | 0
 
     minutes = minutes < 10 ? "0" + minutes : minutes
     seconds = seconds < 10 ? "0" + seconds : seconds
 
-    timerField.textContent = minutes + ":" + seconds;
+    timerField.textContent = minutes + ":" + seconds
 
-  }, 1000)
+    if (diff <= 0) {
+      location.href = id + '/result'
+      document.cookie = "end_time=" + new Date()
+      localStorage.clear()
+    }
+  }
+    timer();
+    setInterval(timer, 1000);
+
 }
