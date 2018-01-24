@@ -7,11 +7,11 @@ class BadgesRules
   end
 
   def level_rule(badge_level)
-    self.all_in_level? && badge_level == test_passage.test.level.to_s
+    self.all_in_level?(badge_level)
   end
 
   def category_rule(badge_category)
-    self.all_in_category? && badge_category == test_passage.test.category.title
+    self.all_in_category?(badge_category)
   end
 
   def attempt_rule(badge_attempt)
@@ -21,27 +21,17 @@ class BadgesRules
   protected
 
   def first_attempt?
-    passages = user.test_passages.passed.where("test_id = :test_id", test_id: test_passage.test_id)
-    passages.count == 1
+    passages = user.test_passages.where("test_id = :test_id", test_id: test_passage.test_id)
+    passages.count == 1 && test_passage.passed
   end
 
-  def all_in_category?
-    all_tests_ids = Test.all.where("category_id = :category_id", category_id: test_passage.test.category_id).ids
-    passages = user.test_passages.passed
-    cat_passages = passages.select { |t| t.test.category_id == test_passage.test.category_id }
-    users_tests_ids = cat_passages.pluck(:test_id).uniq
-
-    all_tests_ids == users_tests_ids
+  def all_in_category?(category)
+    cat_id = Category.where(title: category)
+    Test.by_category(category).count == user.test_passages.joins(:test).where(tests: { category: cat_id }).passed.uniq(&:test_id).count
   end
 
-  def all_in_level?
-    all_tests_ids = Test.by_level(test_passage.test.level).ids
-    passages = user.test_passages.passed
-    cat_passages = passages.select { |t| t.test.level == test_passage.test.level }
-    users_tests_ids = cat_passages.pluck(:test_id).uniq
-
-    all_tests_ids == users_tests_ids
+  def all_in_level?(level)
+    Test.by_level(level).count == user.test_passages.joins(:test).where(tests: { level: level}).passed.uniq(&:test_id).count
   end
-
 
 end

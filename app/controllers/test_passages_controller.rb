@@ -6,8 +6,8 @@ class TestPassagesController < ApplicationController
   end
 
   def result
-    end_time = cookies[:end_time].truncate(27).to_time
-    
+    end_time = cookies[:end_time].truncate(27).to_time if cookies[:end_time].present?
+
     if end_time.present? && (end_time - Time.now).truncate.zero?
       @test_passage.current_question_id = nil
       @test_passage.save
