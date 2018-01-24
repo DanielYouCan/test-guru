@@ -37,7 +37,6 @@ function setTimer(duration) {
 
     if (diff <= 0) {
       location.href = id + '/result'
-      document.cookie = "end_time=" + new Date()
       localStorage.clear()
     }
   }

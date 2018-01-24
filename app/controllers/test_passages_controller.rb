@@ -1,17 +1,12 @@
 class TestPassagesController < ApplicationController
 
   before_action :set_test_passage, only: %i[show result update gist]
+  before_action :check_end_time, only: %i[result update]
 
   def show
   end
 
   def result
-    end_time = cookies[:end_time].truncate(27).to_time if cookies[:end_time].present?
-
-    if end_time.present? && (end_time - Time.now).truncate.zero?
-      @test_passage.current_question_id = nil
-      @test_passage.save
-    end
   end
 
   def gist
@@ -31,7 +26,7 @@ class TestPassagesController < ApplicationController
   end
 
   def update
-    @test_passage.accept!(params[:answer_ids])
+    @test_passage.accept!(params[:answer_ids]) unless @test_passage.current_question_id.nil?
 
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
@@ -48,6 +43,14 @@ class TestPassagesController < ApplicationController
   end
 
   private
+
+  def check_end_time
+    if session[:end_time].present? && session[:end_time] <= Time.now
+      @test_passage.current_question_id = nil
+      @test_passage.save
+      session[:end_time] = nil
+    end
+  end
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
