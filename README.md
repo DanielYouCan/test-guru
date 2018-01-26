@@ -1,8 +1,5 @@
 # README
 
-Entities list:
-- Test
-- User
-- Question
-- Answer
-- Results
+Test-guru project is a Ruby on Rails web application, that allows to manage and pass tests.
+Tests can be passed by time, by passing any tests you can get badges.
+Users can add interesting or complicated questions on GistsList or ask a question to administrator through feedback form.
