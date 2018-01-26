@@ -5,7 +5,7 @@ class BadgesSelector
     result = []
 
     badges.each do |badge|
-      select_badge(badge, test_passage, user, result) if user.badges.exclude?(badge) || badge.rule_title == 'attempt' || user.test_passages.passed.where("test_id = :test_id AND updated_at < :time", test_id: test_passage.test.id, time: 5.second.ago).empty?
+      select_badge(badge, test_passage, user, result) if can_be_selected?(user, badge, test_passage)
     end
     result.flatten.compact
   end
@@ -22,6 +22,12 @@ class BadgesSelector
       result << badge if setup.category_rule(badge.rule_value) && badge.rule_value == test_passage.test.category.title
     end
 
+  end
+
+  private
+
+  def self.can_be_selected?(user, badge, test_passage)
+    user.badges.exclude?(badge) || badge.rule_title == 'attempt' || user.test_passages.passed.where("test_id = :test_id AND updated_at < :time", test_id: test_passage.test.id, time: 5.second.ago).empty?
   end
 
 end

@@ -73,7 +73,7 @@ en:
       success: '%{gist} was successfully created!'
       failure: 'An error occured during creation of the gist'
     update:
-      new_badges: "You've just gotten %{amount} new <a href='/badges' target='_blank'>badges</a>"
+      new_badges: "You've just gotten %{count} new <a href='/badges' target='_blank'>badges</a>"
 
   admin:
     header:

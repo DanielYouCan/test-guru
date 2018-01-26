@@ -75,7 +75,10 @@ ru:
       success_html: "%{gist} успешно сохранен!"
       failure: 'Во время сохранения gist произошла ошибка'
     update:
-      new_badges: "Вы получили %{amount} новых <a href='/badges' target='_blank'>бейджа</a>"
+      new_badges:
+        one: "Вы получили %{count} новый <a href='/badges' target='_blank'>бейдж</a>"
+        few: "Вы получили %{count} новых <a href='/badges' target='_blank'>бейджа</a>"
+        many: "Вы получили %{count} новых <a href='/badges' target='_blank'>бейджей</a>"
 
   gist_desc: "Вопрос про %{title} с TestGuru"
 

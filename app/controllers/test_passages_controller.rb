@@ -1,12 +1,18 @@
 class TestPassagesController < ApplicationController
 
   before_action :set_test_passage, only: %i[show result update gist]
-  before_action :check_end_time, only: %i[result update]
+  before_action :get_end_time, only: %i[update result]
+  before_action :check_end_time, only: %i[update]
 
   def show
   end
 
   def result
+    if @end_time.present? && @end_time <= Time.now
+      @test_passage.current_question_id = nil
+      @test_passage.save
+      session[:end_time] = nil
+    end
   end
 
   def gist
@@ -26,7 +32,7 @@ class TestPassagesController < ApplicationController
   end
 
   def update
-    @test_passage.accept!(params[:answer_ids]) unless @test_passage.current_question_id.nil?
+    @test_passage.accept!(params[:answer_ids]) unless @test_passage.completed?
 
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
@@ -35,7 +41,7 @@ class TestPassagesController < ApplicationController
       @badges = BadgesSelector.select_badges(@test_passage, current_user)
       if @badges.present?
         current_user.badges.push(@badges)
-        flash[:notice] = t('.new_badges', amount: @badges.count)
+        flash[:notice] = t('.new_badges', count: @badges.count)
       end
     else
       render :show
@@ -44,11 +50,13 @@ class TestPassagesController < ApplicationController
 
   private
 
+  def get_end_time
+    @end_time = session[:"end_time_#{@test_passage.id}"]
+  end
+
   def check_end_time
-    if session[:end_time].present? && session[:end_time] <= Time.now
-      @test_passage.current_question_id = nil
-      @test_passage.save
-      session[:end_time] = nil
+    if @end_time.present? && @end_time <= Time.now
+      redirect_to result_test_passage_path(@test_passage)
     end
   end
 

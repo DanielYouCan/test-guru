@@ -21,17 +21,17 @@ class BadgesRules
   protected
 
   def first_attempt?
-    passages = user.test_passages.where("test_id = :test_id", test_id: test_passage.test_id)
+    passages = user.test_passages.where(test_id: test_passage.test_id)
     passages.count == 1 && test_passage.passed
   end
 
   def all_in_category?(category)
     cat_id = Category.where(title: category)
-    Test.by_category(category).count == user.test_passages.joins(:test).where(tests: { category: cat_id }).passed.uniq(&:test_id).count
+    Test.by_category(category).count == user.test_passages.joins(:test).where(tests: { category: cat_id }).passed.distinct.pluck(:test_id).count
   end
 
   def all_in_level?(level)
-    Test.by_level(level).count == user.test_passages.joins(:test).where(tests: { level: level}).passed.uniq(&:test_id).count
+    Test.by_level(level).count == user.test_passages.joins(:test).where(tests: { level: level}).passed.distinct.pluck(:test_id).count
   end
 
 end

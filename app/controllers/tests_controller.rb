@@ -12,7 +12,8 @@ class TestsController < ApplicationController
   def start
     current_user.tests.push(@test)
     redirect_to current_user.test_passage(@test)
-    session[:end_time] = Time.now + @test.duration.minute if @test.duration.present?
+    id = TestPassage.last.id
+    session[:"end_time_#{id}"] = Time.now + @test.duration.minute if @test.duration.present?
   end
 
   private

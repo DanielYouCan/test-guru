@@ -18,10 +18,10 @@ function setTimer(duration) {
 
   var id = timerField.dataset.testPassageId
 
-  if (localStorage["start"]) {
-    start = localStorage["start"];
+  if (localStorage["start" + id]) {
+    start = localStorage["start" + id];
   } else {
-    localStorage["start"] = start;
+    localStorage["start" + id] = start;
   }
 
   function timer() {
@@ -37,7 +37,7 @@ function setTimer(duration) {
 
     if (diff <= 0) {
       location.href = id + '/result'
-      localStorage.clear()
+      localStorage.removeItem("start" + id)
     }
   }
     timer();
