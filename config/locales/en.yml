@@ -52,8 +52,13 @@ en:
       level: "Level"
       questions: "Questions"
       actions: "Actions"
+      duration: 'Duration'
     test:
       start: 'Start'
+      usual: 'No time'
+      minutes:
+        one: '%{count} minute'
+        other: '%{count} minutes'
 
   test_passages:
     result:
@@ -62,11 +67,13 @@ en:
       back: 'Back'
       message_success: "Your result is %{test_result}%.You successfully passed the test!"
       message_failed: "Your result is %{test_result}%.You failed passing the test"
+    show:
+      time_remain: 'Time left'
     gist:
       success: '%{gist} was successfully created!'
       failure: 'An error occured during creation of the gist'
     update:
-      new_badges: "You've just gotten %{amount} new <a href='/badges' target='_blank'>badges</a>"
+      new_badges: "You've just gotten %{count} new <a href='/badges' target='_blank'>badges</a>"
 
   admin:
     header:
@@ -126,6 +133,7 @@ en:
         questions: "Questions"
         actions: "Actions"
         new: 'New test'
+        duration: 'Duration'
         admin_access: 'You are not authorized to view this page'
       edit:
         header: 'Edit %{title} test'

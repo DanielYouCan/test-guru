@@ -17,6 +17,7 @@
   <td class="align-middle">
     <%= link_to t('.delete'),
                     admin_badge_path(badge),
+                    method: :delete,
                     data: { confirm: 'Are you sure?' },
                     class: 'btn btn-danger' %>
   </td>

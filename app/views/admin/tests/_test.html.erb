@@ -4,7 +4,8 @@
     <%= render 'form_inline', test: test == @test ? @test : test %>
   </td>
   <td class="align-middle"><%= test_level(test) %></td>
-  <td class="align-middle"><%= test.questions.count %></td>
+  <td class="align-middle"><%= test.questions_count %></td>
+  <td class="align-middle"><%= test.duration %></td>
   <td class="align-middle">
     <%= link_to t('.show'),
                   admin_test_path(test),
@@ -19,6 +20,7 @@
   <td class="align-middle">
     <%= link_to t('.delete'),
                     admin_test_path(test),
+                    method: :delete,
                     data: { confirm: 'Are you sure?' },
                     class: 'btn btn-danger' %>
   </td>
